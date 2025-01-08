@@ -7,7 +7,7 @@ LAPTOP=false		# Power Efficiency Services
 # =======================================================
 #
 # OS INSTALL INSTRUCTIONS
-# RUN MANUALLY
+# RUN MANUALLY FROM INSTALL MEDIUM
 #
 # Boot Arch Linux Install Medium
 # Connect to the internet.
@@ -18,9 +18,11 @@ LAPTOP=false		# Power Efficiency Services
 # station wlan0 get-networks
 # station wlan0 connect NETWORK_SSID
 # station wlan0 show
-#
-# sudo pacman -Syu archinstall networkmanager
+# sudo pacman -Syu archinstall
 # archinstall
+# mount /mnt /dev/nvme0n1p2
+# arch-chroot /mnt
+# pacman -Syu networkmanager
 # reboot
 #
 # =======================================================
@@ -47,7 +49,7 @@ fi
 
 # install packages
 echo "===== Installing Packages ====="
-if sudo pacman -S --needed --noconfirm git base-devel tmux vim man htop bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
+if sudo pacman -S --needed --noconfirm git base-devel tmux vim man htop tree bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
 	echo "===== Successfully Installed Packages ====="
 else
 	echo "===== Package Install Failure ====="
@@ -57,13 +59,6 @@ fi
 
 echo "N" | yay -S pa-applet-git
 echo "N" | yay -S brave-bin
-
-# Get dots!
-echo "===== Loading dots ====="
-cd
-git clone git@github.com:phylopylo/dots.git
-cp dots/main/linux-bashrc ~/.bashrc
-cp dots/main/linux-tmux.conf ~/.tmux.conf
 
 # Enable Services
 echo "===== Enabling Services ====="
@@ -79,6 +74,17 @@ if [ "$LAPTOP" = true ] ; then
 	sudo systemctl mask systemd-rfkill.service
 	sudo systemctl mask systemd-rfkill.socket
 fi
+#
+# Get dots!
+echo "===== Loading dots ====="
+cd
+git clone git@github.com:phylopylo/dots.git
+cp dots/main/linux-bashrc ~/.bashrc
+cp dots/main/linux-tmux.conf ~/.tmux.conf
+mkdir ~/.config
+mkdir ~/.config/i3
+cp dots/main/i3-config ~/.config/i3/config
+
 
 echo "===== PARBS OUT! ====="
 reboot
