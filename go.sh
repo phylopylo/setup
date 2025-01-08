@@ -47,7 +47,7 @@ fi
 
 # install packages
 echo "===== Installing Packages ====="
-if sudo pacman -S --needed --noconfirm git base-devel tmux vim man bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
+if sudo pacman -S --needed --noconfirm git base-devel tmux vim man htop bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
 	echo "===== Successfully Installed Packages ====="
 else
 	echo "===== Package Install Failure ====="
@@ -56,11 +56,12 @@ fi
 
 
 echo "N" | yay -S pa-applet-git
+echo "N" | yay -S brave-bin
 
 # Get dots!
 echo "===== Loading dots ====="
 cd
-git clone https://github.com/phylopylo/dots.git
+git clone git@github.com:phylopylo/dots.git
 cp dots/main/linux-bashrc ~/.bashrc
 cp dots/main/linux-tmux.conf ~/.tmux.conf
 
