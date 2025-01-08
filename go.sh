@@ -1,4 +1,5 @@
 # PARBS 
+echo "===== PARBoids RISE UP ====="
 
 SSID=""			# Leave empty if ethernet
 LAPTOP=false		# Power Efficiency Services
@@ -26,6 +27,7 @@ LAPTOP=false		# Power Efficiency Services
 
 # Connect to the internet.
 if [ -n "$SSID" ]; then
+	echo "===== Connecting to network $SSID ====="
 	sudo systemctl enable NetworkManager
 	sudo systemctl start NetworkManager
 	nmcli radio wifi
@@ -34,6 +36,7 @@ if [ -n "$SSID" ]; then
 fi
 
 # install AUR manager
+echo "===== Installing yay ====="
 cd
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -41,23 +44,27 @@ makepkg -si
 cd
 
 # install packages
+echo "===== Installing Packages ====="
 sudo pacman -S --needed git base-devel bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi 
 
 yay -S pa-applet-git
 
 # Get dots!
+echo "===== Loading dots ====="
 cd
 git clone https://phylopylo/dots.git
 cp dots/main/linux-bashrc ~/.bashrc
 cp dots/main/linux-tmux.conf ~/.tmux.conf
 
 # Enable Services
+echo "===== Enabling Services ====="
 sudo systemctl enable bluetooth
 sudo systemctl enable fstrim.timer
 sudo systemctl enable lightdm
 
 # Power Efficiency Settings
 if [ "$LAPTOP" = true ] ; then
+	echo "===== Setting up power efficiency services ====="
 	sudo systemctl enable tlp
 	sudo systemctl enable tlp-sleep
 	sudo systemctl mask systemd-rfkill.service
