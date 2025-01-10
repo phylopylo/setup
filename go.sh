@@ -49,7 +49,7 @@ fi
 
 # install packages
 echo "===== Installing Packages ====="
-if sudo pacman -S --needed --noconfirm git base-devel tmux vim man htop tree bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
+if sudo pacman -S --needed --noconfirm git base-devel tmux vim man htop tree discord hugo bluez bluez-utils blueman xorg-server xorg-apps xorg-xinit i3-gaps i3blocks i3lock i3status ly numlockx noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font rxvt-unicode ranger rofi dmenu kitty tlp tlp-rdw powertop acpi ; then
 	echo "===== Successfully Installed Packages ====="
 else
 	echo "===== Package Install Failure ====="
