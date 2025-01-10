@@ -77,10 +77,9 @@ fi
 #
 # Get dots!
 echo "===== Loading dots ====="
-cd
-git clone git@github.com:phylopylo/dots.git
-cp dots/main/linux-bashrc ~/.bashrc
-cp dots/main/linux-tmux.conf ~/.tmux.conf
+cd ~/setup
+cp dots/linux-bashrc ~/.bashrc
+cp dots/linux-tmux.conf ~/.tmux.conf
 mkdir ~/.config
 mkdir ~/.config/i3
 cp dots/main/i3-config ~/.config/i3/config

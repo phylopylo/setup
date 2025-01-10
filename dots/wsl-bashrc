@@ -1,0 +1,33 @@
+#!/bin/bash
+# Philip Roberts Jul 25, 2021
+
+# Bash Aliases
+alias e='exit'
+alias c='clear'
+alias l='ls -la'
+alias sl='ls'
+alias v="vim"
+alias cdh="cd /mnt/c/users/Philip/Documents"
+alias side="cd /mnt/c/users/Philip/Documents/dmitry/side-channel-detection-ml/side"
+
+# Tmux Aliases
+alias t="tmux"
+alias ta="tmux attach"
+alias td="tmux detach"
+alias tls="tmux ls"
+alias tas="tmux attach -t "
+
+# Utilities
+alias py='python3'
+alias extract="tar -xvf"
+alias b="vim ~/.bashrc"
+alias tc="vim ~/.tmux.conf"
+alias tree="tree -a"
+
+# Check Battery
+alias bp="powershell.exe '[console]::beep(261.6, 700)'"
+alias fe="explorer.exe ."
+alias battery="cat /sys/class/power_supply/battery/capacity"
+
+# user@host <current dir> 
+export PS1="\u@pc \W > \[$(tput sgr0)\]"
